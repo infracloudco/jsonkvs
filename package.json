@@ -1,5 +1,5 @@
 {
-  "name": "jsonkvs",
+  "name": "@infracloud/jsonkvs",
   "version": "1.0.0",
   "description": "Use physical JSON files as a key value store",
   "main": "index.js",
