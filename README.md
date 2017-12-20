@@ -36,8 +36,14 @@ Commit changes to disk
 
 ## ToDo
 
-[ ] When a file is open it's contents is loaded into memory and it's not locked.
-[ ] If the file changes on the FS it's contents should be reread and memory copy updated.
-[ ] Any pending changes in memory will superseed new changes from disk.
-[ ] The above bollocks should all be configurable (you can lock a file, get/set directly from the file (via inmemory cache), conflict resolution)
-[ ] Can save to an alternative location
+* [ ] When a file is open it's contents is loaded into memory and it's not locked.
+* [ ] If the file changes on the FS it's contents should be reread and memory copy updated.
+* [ ] Any pending changes in memory will superseed new changes from disk.
+* [ ] The above bollocks should all be configurable (you can lock a file, get/set directly from the file (via inmemory cache), conflict resolution)
+* [ ] Can save to an alternative location
+
+## Licence
+
+(MIT 2-Clause)
+
+Copyright (c) 2017, [Infracloud Ltd](http://infracloud.co) All rights reserved.
