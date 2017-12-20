@@ -13,24 +13,34 @@ packageJson.del('someKey')
 packageJson.save() // write changes
 ```
 
+## Config
+
+| Key      | Default | Detail                                                             |
+| -------- | ------- | ------------------------------------------------------------------ |
+| tabSpace | '\t'    | What character to use to indent output JSON. Defaults to hard tab. |
+
 ## API
 
-### get(key)
+### jsonkvs(path, config)
+
+Load a JSON file at a given `path`.
+
+#### .get(key)
 
 Get the value of a given `key`. If no `key` is passed will return the whole object.
 
-### set(key, value | patch, replace=false)
+#### .set(key, value | patch, replace=false)
 
 Set the `value` of a given `key`. Can be called two ways:
 
 * By passing the `key` as first argument and `value` as second.
 * By passing an `patch` object. In this case the patch will be merged. If `replace` is set then the original file will be overridden by the patch
 
-### del(key)
+#### .del(key)
 
 Unset a given keys
 
-### save()
+#### .save()
 
 Commit changes to disk
 

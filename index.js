@@ -1,6 +1,11 @@
 const fs = require("fs");
 
-function jsonkvs(path) {
+const defaultConfig = {
+  tabSpace: "\t"
+};
+
+function jsonkvs(path, config = {}) {
+  config = { ...defaultConfig, ...config };
   let file = JSON.parse(fs.readFileSync(path, "utf8"));
 
   return {
@@ -20,7 +25,11 @@ function jsonkvs(path) {
       delete file[key];
     },
     save: () => {
-      fs.writeFileSync(path, JSON.stringify(file, null, "\t"), "utf8");
+      fs.writeFileSync(
+        path,
+        JSON.stringify(file, null, config.tabSpace),
+        "utf8"
+      );
     }
   };
 }
