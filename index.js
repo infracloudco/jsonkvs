@@ -5,19 +5,19 @@ const defaultConfig = {
 };
 
 function jsonkvs(path, config = {}) {
-  config = { ...defaultConfig, ...config };
+  config = Object.assign(defaultConfig, config);
   let file = JSON.parse(fs.readFileSync(path, "utf8"));
 
   return {
     get: key => (key ? file[key] : file),
-    set: (...args) => {
-      if (typeof args[0] === "object") {
-        const patch = args[0];
-        const replace = !!args[1];
-        file = replace ? patch : { ...file, ...patch };
+    set: (keyOrPatch, valueOrReplace) => {
+      if (typeof keyOrPatch === "object") {
+        const patch = keyOrPatch;
+        const replace = !!valueOrReplace;
+        file = replace ? patch : Object.assign(file, patch);
       } else {
-        const key = args[0];
-        const value = args[1];
+        const key = keyOrPatch;
+        const value = valueOrReplace;
         file[key] = value;
       }
     },
